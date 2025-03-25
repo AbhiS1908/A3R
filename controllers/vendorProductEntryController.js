@@ -43,7 +43,7 @@ exports.addProductEntry = async (req, res) => {
         }
 
         // Save the new product entry
-        const newEntry = new ProductEntry({
+        const newEntry = new VendorProductEntry({
             vendorStockDetailsId,
             productInfo,
             ratePerKg,
@@ -147,7 +147,7 @@ exports.updateVendorProductEntry = async (req, res) => {
         const { productInfo, quantity } = req.body;
 
         // Find the product entry
-        const productEntry = await ProductEntry.findById(id);
+        const productEntry = await VendorProductEntry.findById(id);
         if (!productEntry) {
             return res.status(404).json({ message: 'Product entry not found' });
         }
